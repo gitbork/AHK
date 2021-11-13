@@ -1,0 +1,79 @@
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+CoordMode, Mouse , Screen
+
+; get your list of codes, then highlight one code at a time 
+; (i.e., double click until it is blue)
+; then hit your shortcut key and it should work
+
+
+; you can change this to be a different shortcut if you want
+; right now it is using "Control+F12"
+
+^F12::
+
+Send, ^x
+
+; open the AHK Window Spy
+; Click anywhere on the hunt page (not on a button tho)
+; find the "screen" mouse coordinates in Windows Spy
+; replace the X and Y below with your coordinates
+
+Send {Click X Y} 
+
+; remember not to move your window or you will need to update the XY
+
+Sleep, 50
+Send, {Tab}
+Sleep, 100
+Send, {Tab}
+Send, {Enter}
+Sleep, 500
+
+; Click in the field where you enter the hunt code
+; find the "screen" mouse coordinates in Windows Spy
+; replace the X and Y below with your coordinates
+
+Send {Click X Y} 
+
+; remember not to move your window or you will need to update the XY
+
+Sleep, 500
+Send, ^v
+Send, {Enter}
+Sleep, 1000
+
+; Click in the field where you enter the your first name
+; find the "screen" mouse coordinates in Windows Spy
+; replace the X and Y below with your coordinates
+
+Send {Click X Y}
+
+; replace "FirstName" below with your first name
+
+Send, FirstName
+Send, {Tab}
+
+; replace "LastName" below with your last name
+
+Send, LastName
+Send, {Tab}
+
+; replace the fake email addres below with your email
+
+Send, YourEmailAddress@email.com
+
+Send, {Tab}
+Send, {Space}
+Send, {Tab}
+Send, {Tab}
+Send, {Enter}
+Sleep, 2500
+Send, {Esc}
+Sleep, 100
+Send, ^r
+
+return
